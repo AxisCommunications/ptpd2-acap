@@ -1,0 +1,32 @@
+---
+name: 'Trigger: Push action'
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - uses: actions/checkout@v2
+      # Install Docker used by Makefile for our builds
+      - run: sudo apt-get update
+      - run: sudo apt-get --fix-broken install
+      - run: sudo apt-get install -y runc containerd docker.io
+      # Test all Makefile targets and make sure the ACAP files are created
+      - name: Build ACAPs
+        run: make -j
+      - name: Verify ACAPs
+        run: |
+          for a in armv7hf aarch64; do
+          tar tzf eap/*$a.eap >/dev/null || echo "Error: Verification of $a ACAP failed" >&2
+          done
+      - name: Clean
+        run: |
+          make clean
+          [ ! -d eap ] || echo 'Error: Directory eap still exists after `make clean`' >&2

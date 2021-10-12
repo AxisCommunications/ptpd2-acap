@@ -1,0 +1,18 @@
+{
+    "schemaVersion": "1.1",
+    "acapPackageConf": {
+        "setup": {
+            "appName": "ptpd2",
+            "friendlyName": "Precision Time Protocol daemon", 
+            "vendor": "Open Source",
+            "embeddedSdkVersion": "2.0",
+            "user": {
+                "username": "root",
+                "group": "root"
+            },
+            "runOptions": "-c /usr/local/packages/ptpd2/ptpd2.conf",
+            "runMode": "respawn",
+            "version": "2.3.1"
+        }
+    }
+}

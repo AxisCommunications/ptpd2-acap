@@ -24,9 +24,11 @@ jobs:
       - name: Verify ACAPs
         run: |
           for a in armv7hf aarch64; do
-          tar tzf eap/*$a.eap >/dev/null || echo "Error: Verification of $a ACAP failed" >&2
+          echo "Verification of $a ACAP"
+          tar tzf eap/*$a.eap >/dev/null
           done
       - name: Clean
         run: |
           make clean
-          [ ! -d eap ] || echo 'Error: Directory eap still exists after `make clean`' >&2
+          echo 'Making sure ACAP files were cleaned by `make clean`'
+          [ ! -d eap ]

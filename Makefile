@@ -1,3 +1,6 @@
+# Copyright (C) 2021 Axis Communications AB, Lund, Sweden
+# SPDX-License-Identifier: Apache-2.0
+
 .PHONY: %.eap all clean
 
 TAG := ptpd2-acap

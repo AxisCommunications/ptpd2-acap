@@ -6,10 +6,7 @@
 TAG := ptpd2-acap
 
 %.eap:
-	docker build --build-arg ARCH=$(@:.eap=) -t $(TAG):$(@:.eap=) . && \
-	staging=$$(docker create $(TAG):$(@:.eap=)) && \
-	docker cp $$staging:/eap ./ && \
-	docker rm $$staging
+	DOCKER_BUILDKIT=1 docker build --build-arg ARCH=$(@:.eap=) -o type=local,dest=eap .
 
 all: armv7hf.eap aarch64.eap
 

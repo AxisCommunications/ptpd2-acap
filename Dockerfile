@@ -33,8 +33,6 @@ COPY manifest.json \
 RUN . /opt/axis/acapsdk/environment-setup* && \
     acap-build -a ptpd2 -a ptpd2.conf .
 
-FROM busybox:1.34.0
+FROM scratch
 ARG STAGE_DIR
-WORKDIR /eap
-COPY --from=builder "$STAGE_DIR"/*eap ./
-COPY --from=builder "$STAGE_DIR"/*LICENSE.txt ./
+COPY --from=builder "$STAGE_DIR"/*eap "$STAGE_DIR"/*LICENSE.txt /

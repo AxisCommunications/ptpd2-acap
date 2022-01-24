@@ -12,7 +12,16 @@ cross-compiles it and packages it as an Axis
 The build procedure assumes the existence of [Docker](https://www.docker.com/)
 (and Internet connectivity) on the build machine.
 
-## Building
+## Build
+
+### On host with ACAP SDK installed
+
+```sh
+# With the environment initialized, use:
+acap-build -a ptpd2 -a ptpd2.conf .
+```
+
+### Using ACAP SDK build container and Docker
 
 This repository has a [Makefile](Makefile) that wraps cross-compiling the
 `ptpd2` binary for the target architectures and to build for all targets,
@@ -28,13 +37,22 @@ or perhaps
 make -j
 ```
 
-and you will find the built ACAPs in the `./eap` directory upon successful
-build.
+(to build in parallel). Then you will find the built ACAPs in the `./eap`
+directory upon successful build.
 
 If you would like to build for, say, `armv7hf` *only*, please use
 
 ```sh
 make armv7hf.eap
+```
+
+If you do have Docker but no `make` on your system:
+
+```sh
+# 32-bit ARM
+DOCKER_BUILDKIT=1 docker build --build-arg ARCH=armv7hf -o type=local,dest=eap .
+# 64-bit ARM
+DOCKER_BUILDKIT=1 docker build --build-arg ARCH=aarch64 -o type=local,dest=eap .
 ```
 
 ## Running

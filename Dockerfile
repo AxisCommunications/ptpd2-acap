@@ -11,6 +11,7 @@ ARG PTP_DIR=$SRC_DIR/ptpd-$PTPD_VERSION
 ARG STAGE_DIR
 # Get source code
 WORKDIR $SRC_DIR
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl -L http://downloads.sourceforge.net/project/ptpd/ptpd/$PTPD_VERSION/ptpd-$PTPD_VERSION.tar.gz | tar xzf -
 WORKDIR $PTP_DIR
 # Cross compile for our target

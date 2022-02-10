@@ -12,7 +12,7 @@ ARG STAGE_DIR
 # Get source code
 WORKDIR $SRC_DIR
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN curl -L http://downloads.sourceforge.net/project/ptpd/ptpd/$PTPD_VERSION/ptpd-$PTPD_VERSION.tar.gz | tar xzf -
+RUN curl -L http://downloads.sourceforge.net/project/ptpd/ptpd/$PTPD_VERSION/ptpd-$PTPD_VERSION.tar.gz | tar xz
 WORKDIR $PTP_DIR
 # Cross compile for our target
 RUN . /opt/axis/acapsdk/environment-setup* && \

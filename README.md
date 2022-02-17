@@ -1,4 +1,9 @@
+*Copyright (C) 2022, Axis Communications AB, Lund, Sweden. All Rights Reserved.*
+
 # Precision Time Protocol daemon ACAP
+
+[![Build ACAPs](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/build.yml/badge.svg)](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/build.yml)
+[![GitHub Super-Linter](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/super-linter.yml/badge.svg)](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/super-linter.yml)
 
 [Precision Time Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol)
 (PTP) comes in handy in use cases where time synchronization with high
@@ -49,9 +54,9 @@ make armv7hf.eap
 If you do have Docker but no `make` on your system:
 
 ```sh
-# 32-bit ARM
+# 32-bit ARM, e.g. ARTPEC-6- and ARTPEC-7-based devices
 DOCKER_BUILDKIT=1 docker build --build-arg ARCH=armv7hf -o type=local,dest=eap .
-# 64-bit ARM
+# 64-bit ARM, e.g. ARTPEC-8-based devices
 DOCKER_BUILDKIT=1 docker build --build-arg ARCH=aarch64 -o type=local,dest=eap .
 ```
 
@@ -63,5 +68,5 @@ will automatically start running with the default options set in
 found in [ptpd2.conf (5)](https://www.systutorials.com/docs/linux/man/5-ptpd2.conf/).)
 
 If you would like to alter the configuration, you will find it in the directory
-`/usr/local/packages/ptp2d/` on the target device. Please edit it and then
+`/usr/local/packages/ptpd2/` on the target device. Please edit it and then
 restart the ACAP for the new changes to be used.

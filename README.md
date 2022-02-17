@@ -1,4 +1,9 @@
+*Copyright (C) 2022, Axis Communications AB, Lund, Sweden. All Rights Reserved.*
+
 # Precision Time Protocol daemon ACAP
+
+[![Build ACAPs](https://github.com/AxisCommunications/opc-ua-server-acap/actions/workflows/build.yml/badge.svg)](https://github.com/AxisCommunications/opc-ua-server-acap/actions/workflows/build.yml)
+[![GitHub Super-Linter](https://github.com/AxisCommunications/opc-ua-server-acap/actions/workflows/super-linter.yml/badge.svg)](https://github.com/AxisCommunications/opc-ua-server-acap/actions/workflows/super-linter.yml)
 
 [Precision Time Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol)
 (PTP) comes in handy in use cases where time synchronization with high

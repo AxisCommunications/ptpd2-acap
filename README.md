@@ -70,3 +70,7 @@ found in [ptpd2.conf (5)](https://www.systutorials.com/docs/linux/man/5-ptpd2.co
 If you would like to alter the configuration, you will find it in the directory
 `/usr/local/packages/ptpd2/` on the target device. Please edit it and then
 restart the ACAP for the new changes to be used.
+
+## License
+
+[Apache 2.0](LICENSE)

@@ -10,7 +10,7 @@
 precision is needed. PTP open source implementations exist, were we use
 [ptpd2](https://sourceforge.net/projects/ptpd2/) here: this repository
 cross-compiles it and packages it as an Axis
-[ACAP](https://www.axis.com/products/acap).
+[ACAP](https://www.axis.com/products/acap) application.
 
 ## Prerequisites
 
@@ -42,8 +42,8 @@ or perhaps
 make -j
 ```
 
-(to build in parallel). Then you will find the built ACAPs in the `./eap`
-directory upon successful build.
+(to build in parallel). Then you will find the built ACAP packages in the
+`./eap` directory upon successful build.
 
 If you would like to build for, say, `armv7hf` *only*, please use
 
@@ -62,8 +62,8 @@ DOCKER_BUILDKIT=1 docker build --build-arg ARCH=aarch64 -o type=local,dest=eap .
 
 ## Running
 
-Install the ACAP like you normally do (e.g. in the target device's web UI). It
-will automatically start running with the default options set in
+Install the application like you normally do (e.g. in the target device's web UI).
+It will automatically start running with the default options set in
 [ptpd2.conf](ptpd2.conf). (More info about the configuration options can be
 found in [ptpd2.conf (5)](https://www.systutorials.com/docs/linux/man/5-ptpd2.conf/).)
 

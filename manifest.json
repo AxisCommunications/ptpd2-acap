@@ -1,5 +1,5 @@
 {
-    "schemaVersion": "1.1",
+    "schemaVersion": "1.7.0",
     "acapPackageConf": {
         "setup": {
             "appName": "ptpd2",

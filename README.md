@@ -2,7 +2,7 @@
 
 # Precision Time Protocol daemon ACAP
 
-[![Build ACAPs](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/build.yml/badge.svg)](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/build.yml)
+[![Build ACAP packages](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/build.yml/badge.svg)](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/build.yml)
 [![GitHub Super-Linter](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/super-linter.yml/badge.svg)](https://github.com/AxisCommunications/ptpd2-acap/actions/workflows/super-linter.yml)
 
 [Precision Time Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol)

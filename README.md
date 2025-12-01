@@ -7,26 +7,26 @@
 
 [Precision Time Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol)
 (PTP) comes in handy in use cases where time synchronization with high
-precision is needed. PTP open source implementations exist, were we use
-[ptpd2](https://sourceforge.net/projects/ptpd2/) here: this repository
-cross-compiles it and packages it as an Axis
-[ACAP](https://www.axis.com/products/acap) application.
+precision is needed. As of
+[AXIS OS 12.7](https://help.axis.com/en-us/axis-os-release-notes#axis-os-12-7),
+PTP is a standard feature in AXIS OS, but for devices running
+[AXIS OS LTS 2024 11.11](https://help.axis.com/en-us/axis-os) or older this
+repository enables PTP functionality using
+[ACAP](https://www.axis.com/products/acap)
+to cross-compile and package
+the open source PTP implementation
+[ptpd2](https://sourceforge.net/projects/ptpd2/).
 
-> [!IMPORTANT]
-> The ptpd2 implementation does a startup check to make sure it is run as the
-> root user
-> ([startup.c#L748-L753](https://github.com/ptpd/ptpd/blob/42f68d8818304e0bc3873550317c9b302d4efff6/src/dep/startup.c#L748-L753)).
-> With the *root removal* introduced in
-> [AXIS OS 12](https://help.axis.com/en-us/axis-os-release-notes#axis-os-12),
-> it is no longer allowed to run an ACAP application as the root user. Hence
-> this ACAP packaging of the unmodified ptpd2 executable needs to be run on
-> AXIS OS
-> [LTS 2024 11.11](https://help.axis.com/en-us/axis-os-release-notes#lts-2024-11-11)
-> (supported until 2029-12-31) or older. For newer products released on AXIS OS
-> 12 and newer, alternative PTP options must be used.
-> *However, this repo is still a valid example of how to cross-compile and
-> package other programs with ACAP, as long as they do not need to be run as
-> root.*
+> [!NOTE]
+> The ptpd2 implementation does a startup check to explicitly make sure it is
+> run as the *root* user
+> ([startup.c#L748-L753](https://github.com/ptpd/ptpd/blob/42f68d8818304e0bc3873550317c9b302d4efff6/src/dep/startup.c#L748-L753)),
+> which is not supported in AXIS OS 12 and later after the
+> *[root removal](https://help.axis.com/en-us/axis-os-release-notes#axis-os-12)*.  
+> *Since these newer versions already have PTP, you wouldn't need to install the
+> ptpd2 ACAP package anyway. However, this repo is still a valid example of how
+> to cross-compile and package other programs with ACAP, as long as they do not
+> need to be run as root.*
 
 ## Prerequisites
 
